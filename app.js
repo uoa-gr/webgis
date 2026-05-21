@@ -5,54 +5,12 @@
    ================================================================= */
 
 const ENTRIES = [
-  {
-    id: 'tombolos',
-    no: 'N° 01',
-    title: 'Tombolos',
-    titleItalic: 'of Greece',
-    deck: 'Interactive WebGIS for exploring tombolos in Greece and their vulnerability to sea-level rise under RCP climate scenarios.',
-    url: 'https://uoa-gr.github.io/Tombolos/',
-  },
-  {
-    id: 'historic-floods',
-    no: 'N° 02',
-    title: 'Historic Floods',
-    titleItalic: 'an open record',
-    deck: 'A WebGIS of recorded historic flood events — dates, locations, and sources.',
-    url: 'https://historicfloods.org/',
-  },
-  {
-    id: 'beach-rocks',
-    no: 'N° 03',
-    title: 'Beach Rocks',
-    titleItalic: 'of the world',
-    deck: 'Interactive WebGIS for exploring the global distribution of beachrocks — coastal sedimentary formations.',
-    url: 'https://uoa-gr.github.io/BeachRocks/',
-  },
-  {
-    id: 'coastal-storm-surge',
-    no: 'N° 04',
-    title: 'Πληγείσες Παράκτιες Περιοχές',
-    titleItalic: 'κακοκαιρία Φεβρουαρίου 2026',
-    deck: 'WebGIS των πληγεισών παράκτιων περιοχών της κακοκαιρίας Φεβρουαρίου 2026.',
-    url: 'https://uoa-gr.github.io/coastal-storm-surge-GR-2026/',
-  },
-  {
-    id: 'lagoons',
-    no: 'N° 05',
-    title: 'Lagoons',
-    titleItalic: 'of Earth',
-    deck: 'A WebGIS of the world’s coastal lagoons — their geomorphology, location, and projected vulnerability to sea-level rise under IPCC scenarios.',
-    url: 'https://uoa-gr.github.io/Lagoons/',
-  },
-  {
-    id: 'naxos',
-    no: 'N° 06',
-    title: 'Naxos',
-    titleItalic: 'a geomorphological map',
-    deck: 'A geomorphological WebGIS of the island of Naxos.',
-    url: 'https://uoa-gr.github.io/naxos/',
-  },
+  { id: 'tombolos',            no: 'N° 01', title: 'Tombolos',                       url: 'https://uoa-gr.github.io/Tombolos/' },
+  { id: 'historic-floods',     no: 'N° 02', title: 'Historic Floods',                url: 'https://historicfloods.org/' },
+  { id: 'beach-rocks',         no: 'N° 03', title: 'Beach Rocks',                    url: 'https://uoa-gr.github.io/BeachRocks/' },
+  { id: 'coastal-storm-surge', no: 'N° 04', title: 'Πληγείσες Παράκτιες Περιοχές',   url: 'https://uoa-gr.github.io/coastal-storm-surge-GR-2026/' },
+  { id: 'lagoons',             no: 'N° 05', title: 'Lagoons',                        url: 'https://uoa-gr.github.io/Lagoons/' },
+  { id: 'naxos',               no: 'N° 06', title: 'Naxos',                          url: 'https://uoa-gr.github.io/naxos/' },
 ];
 
 /* Assets follow a fixed pattern; centralised so a future move only edits here. */
@@ -112,8 +70,6 @@ ENTRIES.forEach((entry) => {
 
   node.querySelector('[data-field="no"]').textContent = entry.no;
   node.querySelector('[data-field="title"]').textContent = entry.title;
-  node.querySelector('[data-field="titleItalic"]').textContent = entry.titleItalic;
-  node.querySelector('[data-field="deck"]').textContent = entry.deck;
 
   const link = node.querySelector('[data-field="quickviewLink"]');
   link.href = entry.url;
