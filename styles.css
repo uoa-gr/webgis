@@ -63,7 +63,6 @@ a   { color: inherit; text-decoration: none; }
 .masthead {
   text-align: center;
   padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(3rem, 6vw, 5rem);
-  border-bottom: 1px solid var(--rule);
   margin-bottom: clamp(3rem, 6vw, 5rem);
 }
 
@@ -82,12 +81,21 @@ a   { color: inherit; text-decoration: none; }
   align-items: center;
   justify-content: center;
   gap: clamp(0.9rem, 3vw, 1.75rem);
-  font-family: var(--font-serif);
-  font-weight: 500;
-  font-feature-settings: "lnum" 1, "kern" 1;
-  font-size: clamp(2.6rem, 6.5vw, 4.6rem);
-  line-height: 1;
-  letter-spacing: -0.015em;
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(4.2rem, 10vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: 0;
+  /* Italianno has tall ascender overshoot — the visible glyph centre sits
+     above its line-box, so nudge the text up so the flanking rules align
+     with the optical middle of the letterforms. */
+  padding-top: 0.05em;
+}
+
+.masthead-title-text {
+  display: inline-block;
+  /* Pull the glyphs down a hair so the hairlines sit at optical centre. */
+  transform: translateY(-0.08em);
 }
 
 .masthead-title .rule {
