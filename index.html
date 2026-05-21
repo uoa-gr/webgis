@@ -102,11 +102,13 @@
         </div>
 
         <figure class="entry-qr">
-          <div class="entry-qr-frame" data-field="qrFrame"></div>
+          <div class="entry-qr-frame">
+            <img class="entry-qr-img" alt="" loading="lazy" data-field="qrImg">
+          </div>
           <figcaption class="entry-cap">
             <span class="entry-cap-label">QR</span>
             <button class="action" data-act="copy-qr">Copy&nbsp;PNG</button>
-            <button class="action" data-act="download-qr">Download</button>
+            <a class="action" data-act="download-qr" download>Download</a>
           </figcaption>
         </figure>
       </div>
@@ -114,7 +116,6 @@
     </article>
   </template>
 
-  <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>
