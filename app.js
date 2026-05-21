@@ -138,30 +138,29 @@ ENTRIES.forEach((entry) => {
 const QR_PIXELS = 720;
 
 function generateQR(entry, holder) {
-  const canvas = document.createElement('canvas');
-  canvas.width = QR_PIXELS;
-  canvas.height = QR_PIXELS;
-
-  QRCode.toCanvas(
-    canvas,
-    entry.url,
-    {
-      width: QR_PIXELS,
-      margin: 1,
-      color: { dark: '#000000', light: '#ffffff' },
-      errorCorrectionLevel: 'M',
-    },
-    (err) => {
-      if (err) {
-        console.error('QR generation failed for', entry.id, err);
-        holder.textContent = 'QR unavailable';
-        return;
-      }
-      holder.appendChild(canvas);
-      const rec = cardEls.get(entry.id);
-      if (rec) rec.qrCanvas = canvas;
-    }
-  );
+  if (typeof QRious === 'undefined') {
+    console.error('QRious lib not loaded — QR for', entry.id, 'unavailable');
+    holder.textContent = 'QR unavailable';
+    return;
+  }
+  try {
+    const canvas = document.createElement('canvas');
+    new QRious({
+      element: canvas,
+      value: entry.url,
+      size: QR_PIXELS,
+      level: 'M',
+      background: '#ffffff',
+      foreground: '#000000',
+      padding: 16,
+    });
+    holder.appendChild(canvas);
+    const rec = cardEls.get(entry.id);
+    if (rec) rec.qrCanvas = canvas;
+  } catch (err) {
+    console.error('QR generation failed for', entry.id, err);
+    holder.textContent = 'QR unavailable';
+  }
 }
 
 ENTRIES.forEach((entry) => {
