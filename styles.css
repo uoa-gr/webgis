@@ -155,6 +155,16 @@ a   { color: inherit; text-decoration: none; }
   color: var(--ink);
 }
 
+.masthead-meta-cell dd a {
+  border-bottom: 1px solid var(--rule-soft);
+  transition: border-color 200ms ease, color 200ms ease;
+}
+
+.masthead-meta-cell dd a:hover {
+  color: var(--accent-blue);
+  border-bottom-color: var(--accent-blue);
+}
+
 .masthead-meta-divider {
   width: 1px;
   background: var(--rule-soft);
